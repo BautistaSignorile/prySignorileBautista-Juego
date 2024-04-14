@@ -15,6 +15,8 @@ namespace prySignorileBautista_Juego
         public  string nombre;
         public int puntoDaño;
         public PictureBox imgNave;
+        public PictureBox imgNaveEnemigo;
+
 
         public void crearJugador() 
         {
@@ -23,7 +25,9 @@ namespace prySignorileBautista_Juego
             puntoDaño = 1;
             imgNave = new PictureBox();
             imgNave.SizeMode = PictureBoxSizeMode.StretchImage;
-            imgNave.ImageLocation = "https://banner2.cleanpng.com/20180326/ble/kisspng-sprite-space-shuttle-story-spacecraft-2d-computer-space-craft-5ab949f72ef7e7.7634883715220925351924.jpg";
+            imgNave.ImageLocation = "enemy2.png";
+            imgNave.BackColor = Color.Transparent;
+            imgNave.Size = new Size(40,40);
         }
 
         public void crearEnemigos()
@@ -31,6 +35,11 @@ namespace prySignorileBautista_Juego
             vida = 25;
             nombre = "Jugador2";
             puntoDaño = 2;
+            imgNaveEnemigo = new PictureBox();
+            imgNaveEnemigo.SizeMode = PictureBoxSizeMode.StretchImage;
+            imgNaveEnemigo.ImageLocation = "enemy1.png";
+            imgNaveEnemigo.BackColor = Color.Transparent;
+            imgNaveEnemigo.Size = new Size(45, 45);
         }
     }
 }

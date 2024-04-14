@@ -5,6 +5,7 @@ namespace prySignorileBautista_Juego
         //Zona declaracion variables globales
 
         claseNave objNaveJugador;
+        claseNave objNaveEnemigo;
         public frmMain()
         {
             InitializeComponent();
@@ -16,10 +17,25 @@ namespace prySignorileBautista_Juego
 
             objNaveJugador.crearJugador();
 
-            objNaveJugador.imgNave.Location = new Point(200, 200);
+            objNaveJugador.imgNave.Location = new Point(320, 600);
             Controls.Add(objNaveJugador.imgNave);
 
+
             //MessageBox.Show(objNaveJugador.nombre);
+            objNaveEnemigo = new claseNave();
+            int X = 50;
+            for (int i = 0; i < 7; i++)
+            {
+                objNaveEnemigo.crearEnemigos();
+
+                objNaveEnemigo.imgNaveEnemigo.Location = new Point(X, 50);
+                Controls.Add(objNaveEnemigo.imgNaveEnemigo);
+                X += objNaveEnemigo.imgNaveEnemigo.Size.Width * 2;
+
+            }
+            
+
+            
         }
         private void frmMain_KeyDown(object sender, KeyEventArgs e)
         {

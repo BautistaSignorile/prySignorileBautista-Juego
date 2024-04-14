@@ -28,18 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             SuspendLayout();
             // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(64, 64, 64);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(700, 700);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmMain";
             Text = "Form1";
             Load += frmMain_Load;
-            KeyDown += this.frmMain_KeyDown;
+            KeyDown += frmMain_KeyDown;
             ResumeLayout(false);
         }
 
