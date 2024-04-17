@@ -6,6 +6,7 @@ namespace prySignorileBautista_Juego
 
         claseNave objNaveJugador;
         claseNave objNaveEnemigo;
+        claseNave objLaser;
         public frmMain()
         {
             InitializeComponent();
@@ -23,7 +24,7 @@ namespace prySignorileBautista_Juego
 
             //MessageBox.Show(objNaveJugador.nombre);
             objNaveEnemigo = new claseNave();
-            int X = 50;
+            int X = 23;
             for (int i = 0; i < 7; i++)
             {
                 objNaveEnemigo.crearEnemigos();
@@ -33,9 +34,21 @@ namespace prySignorileBautista_Juego
                 X += objNaveEnemigo.imgNaveEnemigo.Size.Width * 2;
 
             }
-            
 
-            
+            int x = 23;
+            objLaser = new claseNave();
+            for (int i = 0; i < 7; i++)
+            {
+                objLaser.crearLaserEnemigo();
+
+                objLaser.imgBala.Location = new Point(x, 70);
+                Controls.Add(objLaser.imgBala);
+                x += objLaser.imgBala.Size.Width * 2;
+
+            }
+
+
+
         }
         private void frmMain_KeyDown(object sender, KeyEventArgs e)
         {

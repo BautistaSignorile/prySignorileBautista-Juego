@@ -41,6 +41,7 @@
             ClientSize = new Size(700, 700);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmMain";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             Load += frmMain_Load;
             KeyDown += frmMain_KeyDown;
