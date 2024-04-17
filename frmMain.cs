@@ -14,42 +14,41 @@ namespace prySignorileBautista_Juego
 
         private void frmMain_Load(object sender, EventArgs e) 
         {
+            
+
+
+
+        }
+
+        private void frmMain_Load_1(object sender, EventArgs e)
+        {
             objNaveJugador = new claseNave();
 
             objNaveJugador.crearJugador();
 
-            objNaveJugador.imgNave.Location = new Point(320, 600);
+            objNaveJugador.imgNave.Location = new Point(152, 380);
             Controls.Add(objNaveJugador.imgNave);
 
 
             //MessageBox.Show(objNaveJugador.nombre);
             objNaveEnemigo = new claseNave();
-            int X = 23;
+            int X = 17;
             for (int i = 0; i < 7; i++)
             {
                 objNaveEnemigo.crearEnemigos();
 
-                objNaveEnemigo.imgNaveEnemigo.Location = new Point(X, 50);
+                objNaveEnemigo.imgNaveEnemigo.Location = new Point(X, 20);
                 Controls.Add(objNaveEnemigo.imgNaveEnemigo);
-                X += objNaveEnemigo.imgNaveEnemigo.Size.Width * 2;
+                X += objNaveEnemigo.imgNaveEnemigo.Size.Width + 17;
 
-            }
-
-            int x = 23;
-            objLaser = new claseNave();
-            for (int i = 0; i < 7; i++)
-            {
+                objLaser = new claseNave();
                 objLaser.crearLaserEnemigo();
 
-                objLaser.imgBala.Location = new Point(x, 70);
+                objLaser.imgBala.Location = new Point(objNaveEnemigo.imgNaveEnemigo.Location.X + 12 , 20);
                 Controls.Add(objLaser.imgBala);
-                x += objLaser.imgBala.Size.Width * 2;
-
-            }
-
-
-
+            }         
         }
+
         private void frmMain_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Right)
