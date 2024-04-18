@@ -7,14 +7,15 @@ namespace prySignorileBautista_Juego
         claseNave objNaveJugador;
         claseNave objNaveEnemigo;
         claseNave objLaser;
+        claseNave objLaserP;
         public frmMain()
         {
             InitializeComponent();
         }
 
-        private void frmMain_Load(object sender, EventArgs e) 
+        private void frmMain_Load(object sender, EventArgs e)
         {
-            
+
 
 
 
@@ -28,6 +29,12 @@ namespace prySignorileBautista_Juego
 
             objNaveJugador.imgNave.Location = new Point(152, 380);
             Controls.Add(objNaveJugador.imgNave);
+
+            objLaserP = new claseNave();
+            objLaserP.crearLaserPlayer();
+
+            objLaserP.imgBalas.Location = new Point(objNaveJugador.imgNave.Location.X + 14, objNaveJugador.imgNave.Location.Y - objNaveJugador.imgNave.Size.Height);
+            Controls.Add(objLaserP.imgBalas);
 
 
             //MessageBox.Show(objNaveJugador.nombre);
@@ -44,9 +51,9 @@ namespace prySignorileBautista_Juego
                 objLaser = new claseNave();
                 objLaser.crearLaserEnemigo();
 
-                objLaser.imgBala.Location = new Point(objNaveEnemigo.imgNaveEnemigo.Location.X + 12 , 20);
+                objLaser.imgBala.Location = new Point(objNaveEnemigo.imgNaveEnemigo.Location.X + 12, objNaveEnemigo.imgNaveEnemigo.Location.Y + 20);
                 Controls.Add(objLaser.imgBala);
-            }         
+            }
         }
 
         private void frmMain_KeyDown(object sender, KeyEventArgs e)
@@ -54,11 +61,17 @@ namespace prySignorileBautista_Juego
             if (e.KeyCode == Keys.Right)
             {
                 objNaveJugador.imgNave.Location = new Point(objNaveJugador.imgNave.Location.X + 5, objNaveJugador.imgNave.Location.Y);
+                objLaserP.imgBalas.Location = new Point(objLaserP.imgBalas.Location.X + 5, objLaserP.imgBalas.Location.Y);
             }
             if (e.KeyCode == Keys.Left)
             {
                 objNaveJugador.imgNave.Location = new Point(objNaveJugador.imgNave.Location.X - 5, objNaveJugador.imgNave.Location.Y);
+                objLaserP.imgBalas.Location = new Point(objLaserP.imgBalas.Location.X - 5, objLaserP.imgBalas.Location.Y);
             }
+        }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            
         }
     }
 }

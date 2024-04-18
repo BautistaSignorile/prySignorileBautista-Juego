@@ -17,6 +17,8 @@ namespace prySignorileBautista_Juego
         public PictureBox imgNave;
         public PictureBox imgNaveEnemigo;
         public PictureBox imgBala;
+        public PictureBox imgBalas;
+
 
 
         public void crearJugador() 
@@ -48,7 +50,15 @@ namespace prySignorileBautista_Juego
             imgBala.SizeMode = PictureBoxSizeMode.StretchImage;
             imgBala.ImageLocation = "https://i0.wp.com/donaldcarling.wordpress.com/wp-content/uploads/2016/03/blast-harrier-laser-1.png?w=502&h=893&ssl=1";
             imgBala.BackColor = Color.Transparent;
-            imgBala.Size = new Size(7, 50);
+            imgBala.Size = new Size(7, 20);
+        }
+        public void crearLaserPlayer()
+        {
+            imgBalas = new PictureBox();
+            imgBalas.SizeMode = PictureBoxSizeMode.StretchImage;
+            imgBalas.ImageLocation = "https://donaldcarling.wordpress.com/wp-content/uploads/2016/03/mega-laser-1.png";
+            imgBalas.BackColor = Color.Transparent;
+            imgBalas.Size = new Size(7, 20);
         }
     }
 }
