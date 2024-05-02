@@ -38,12 +38,17 @@ namespace prySignorileBautista_Juego
                 Controls.Add(objNaveEnemigo.imgNaveEnemigo);
                 X += objNaveEnemigo.imgNaveEnemigo.Size.Width + 17;
 
-                objLaser = new claseNave();
-                objLaser.crearLaserEnemigo();
+                //objLaser = new claseNave();
+                //objLaser.crearLaserEnemigo();
 
-                objLaser.imgBala.Location = new Point(objNaveEnemigo.imgNaveEnemigo.Location.X + 12, objNaveEnemigo.imgNaveEnemigo.Location.Y + 20);
-                Controls.Add(objLaser.imgBala);
+                //objLaser.imgBala.Location = new Point(objNaveEnemigo.imgNaveEnemigo.Location.X + 12, objNaveEnemigo.imgNaveEnemigo.Location.Y + 20);
+                //Controls.Add(objLaser.imgBala);
+                objEnemigo.Add(objNaveEnemigo);
+                objNaveEnemigo = null;
             }
+
+            timer1.Start();
+            timer1.Enabled = true;
         }
 
         private void frmMain_KeyDown_1(object sender, KeyEventArgs e)
@@ -84,8 +89,11 @@ namespace prySignorileBautista_Juego
                     {
                         Enemigo.imgNaveEnemigo.Dispose();
                         bala.imgBalas.Dispose();
+
+                        Score = Score + 1;
+                        lblPuntos.Text = Score.ToString();
                     }
-                }
+                }  
             }
             
         }

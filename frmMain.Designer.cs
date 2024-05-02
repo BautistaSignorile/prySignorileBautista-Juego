@@ -28,35 +28,63 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.SuspendLayout();
+            timer1 = new System.Windows.Forms.Timer(components);
+            lblScore = new Label();
+            lblPuntos = new Label();
+            SuspendLayout();
             // 
             // timer1
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
+            timer1.Tick += timer1_Tick_1;
+            // 
+            // lblScore
+            // 
+            lblScore.AutoSize = true;
+            lblScore.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblScore.ForeColor = Color.Yellow;
+            lblScore.Location = new Point(0, 203);
+            lblScore.Name = "lblScore";
+            lblScore.Size = new Size(50, 15);
+            lblScore.TabIndex = 0;
+            lblScore.Text = "Score =";
+            // 
+            // lblPuntos
+            // 
+            lblPuntos.AutoSize = true;
+            lblPuntos.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblPuntos.ForeColor = Color.Yellow;
+            lblPuntos.Location = new Point(53, 203);
+            lblPuntos.Name = "lblPuntos";
+            lblPuntos.Size = new Size(14, 15);
+            lblPuntos.TabIndex = 1;
+            lblPuntos.Text = "0";
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(340, 426);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmMain";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.frmMain_Load_2);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmMain_KeyDown_1);
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(64, 64, 64);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(340, 426);
+            Controls.Add(lblPuntos);
+            Controls.Add(lblScore);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "frmMain";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Form1";
+            Load += frmMain_Load_2;
+            KeyDown += frmMain_KeyDown_1;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private System.Windows.Forms.Timer timer1;
+        private Label lblScore;
+        private Label lblPuntos;
     }
 }
