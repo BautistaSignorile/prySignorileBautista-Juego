@@ -33,6 +33,7 @@
             timer1 = new System.Windows.Forms.Timer(components);
             lblScore = new Label();
             lblPuntos = new Label();
+            timer2 = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // timer1
@@ -61,6 +62,10 @@
             lblPuntos.TabIndex = 1;
             lblPuntos.Text = "0";
             // 
+            // timer2
+            // 
+            timer2.Tick += timer2_Tick;
+            // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -86,5 +91,6 @@
         private System.Windows.Forms.Timer timer1;
         private Label lblScore;
         private Label lblPuntos;
+        private System.Windows.Forms.Timer timer2;
     }
 }

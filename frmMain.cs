@@ -9,13 +9,15 @@ namespace prySignorileBautista_Juego
         claseNave objLaser;
         claseNave objLaserP;
         public int Score = 0;
+        public int muertes = 0;
+        int X = 17;
 
         List<claseNave> objList = new List<claseNave>();
         List<claseNave> objEnemigo = new List<claseNave>();
         public frmMain()
         {
             InitializeComponent();
-        } 
+        }
         private void frmMain_Load_2(object sender, EventArgs e)
         {
             objNaveJugador = new claseNave();
@@ -28,27 +30,10 @@ namespace prySignorileBautista_Juego
 
             objNaveEnemigo = new claseNave();
 
-            int X = 17;
-            for (int i = 0; i < 7; i++)
-            {
-                objNaveEnemigo = new claseNave();
-                objNaveEnemigo.crearEnemigos();
-
-                objNaveEnemigo.imgNaveEnemigo.Location = new Point(X, 20);
-                Controls.Add(objNaveEnemigo.imgNaveEnemigo);
-                X += objNaveEnemigo.imgNaveEnemigo.Size.Width + 17;
-
-                //objLaser = new claseNave();
-                //objLaser.crearLaserEnemigo();
-
-                //objLaser.imgBala.Location = new Point(objNaveEnemigo.imgNaveEnemigo.Location.X + 12, objNaveEnemigo.imgNaveEnemigo.Location.Y + 20);
-                //Controls.Add(objLaser.imgBala);
-                objEnemigo.Add(objNaveEnemigo);
-                objNaveEnemigo = null;
-            }
-
             timer1.Start();
             timer1.Enabled = true;
+            timer2.Start();
+            timer2.Enabled = true;
         }
 
         private void frmMain_KeyDown_1(object sender, KeyEventArgs e)
@@ -82,20 +67,51 @@ namespace prySignorileBautista_Juego
             foreach (claseNave bala in objList)
             {
                 bala.imgBalas.Location = new Point(bala.imgBalas.Location.X,
-                    bala.imgBalas.Location.Y - 10);
+                    bala.imgBalas.Location.Y - 35);
                 foreach (claseNave Enemigo in objEnemigo)
                 {
                     if (bala.imgBalas.Bounds.IntersectsWith(Enemigo.imgNaveEnemigo.Bounds))
                     {
                         Enemigo.imgNaveEnemigo.Dispose();
                         bala.imgBalas.Dispose();
+                        objEnemigo.Remove(Enemigo);
 
-                        Score = Score + 1;
+                        Score = Score + 5;
                         lblPuntos.Text = Score.ToString();
+                        muertes = muertes + 1;
+                        if (muertes == 5)
+                        {
+                            contador = 0;
+                            muertes = 0;
+                        }
+                        break;
                     }
-                }  
+                }
             }
-            
+        }
+
+        int contador, PosX, PosY;
+        Random randomX = new Random();
+        Random randomY = new Random();
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if (contador < 1)
+            {
+                int x = 23;
+                for (int i = 0; i < 5; i++)
+                {
+                    PosX = randomX.Next(0, 10);
+                    PosY = randomY.Next(30, 40);
+                    objNaveEnemigo = new claseNave();
+                    objNaveEnemigo.crearEnemigos();
+                    objEnemigo.Add(objNaveEnemigo);
+                    objNaveEnemigo.imgNaveEnemigo.Location = new Point(x, PosY);
+                    Controls.Add(objNaveEnemigo.imgNaveEnemigo);
+                    x += objNaveEnemigo.imgNaveEnemigo.Size.Width * 2;
+                }
+                contador++;
+            }
         }
     }
 }
