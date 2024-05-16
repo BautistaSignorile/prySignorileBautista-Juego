@@ -1,3 +1,6 @@
+using System;
+using System.Windows.Forms;
+
 namespace prySignorileBautista_Juego
 {
     public partial class frmMain : Form
@@ -34,6 +37,8 @@ namespace prySignorileBautista_Juego
             timer1.Enabled = true;
             timer2.Start();
             timer2.Enabled = true;
+            timer3.Enabled = true;
+            timer3.Start();
         }
 
         private void frmMain_KeyDown_1(object sender, KeyEventArgs e)
@@ -111,6 +116,20 @@ namespace prySignorileBautista_Juego
                     x += objNaveEnemigo.imgNaveEnemigo.Size.Width * 2;
                 }
                 contador++;
+            }
+        }
+
+        private void timer3_Tick(object sender, EventArgs e)
+        {
+
+            foreach (claseNave enemigo in objEnemigo)
+            {
+                
+                Random random = new Random();
+                int direction = random.Next(2) == 0 ? -2 : 2; 
+
+          
+                enemigo.imgNaveEnemigo.Location = new Point(enemigo.imgNaveEnemigo.Location.X + direction, enemigo.imgNaveEnemigo.Location.Y);
             }
         }
     }

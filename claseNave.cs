@@ -18,6 +18,8 @@ namespace prySignorileBautista_Juego
         public PictureBox imgNaveEnemigo;
         public PictureBox imgBala;
         public PictureBox imgBalas;
+        public string direccion = "Right";
+        public int numVecesCambiadoDireccion = 0;
 
 
 
